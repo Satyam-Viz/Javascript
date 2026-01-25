@@ -1,2 +1,2 @@
 # Javascript
-Journey of Js for basic to Intermediate 
+Journey of Js form basic to Intermediate 
