@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Satyam Vishwakarma</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam iure, molestias dignissimos cupiditate qui, id,
+        aliquid quos placeat suscipit modi iusto doloremque accusamus sapiente fugiat accusantium quam facere quas
+        magni.
+    </p>
+</body>
+<script>
+const requestUrl = "https://api.github.com/users/Satyam-Viz"
+
+// const xhr = new XMLHttpRequest();
+// xhr.open('GET', requestUrl);
+// xhr.onreadystatechange = function(){
+//     console.log(xhr.onreadystatechange);
+//     if(xhr.readyState === 4){
+//         const data = JSON.parse(xhr.responseText);
+//         console.log(data.public_repos);
+//         console.log(data.followers);
+//     }
+// }
+
+// xhr.send();
+
+const response =fetch(requestUrl);
+response.then(res => res.json()).then(data => {
+    console.log(data.public_repos);
+    console.log(data.followers);
+});
+</script>
+</html>
