@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #2d2b2b;
+        color: #fff;
+    }
+
+    div {
+        text-align: center;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    div p {
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    div button {
+        padding: 10px 20px;
+        font-size: 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #fff;
+        color: #2d2b2b;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+
+    <div>
+        <h2>JavaScript Geolocation API</h2>
+        <p>Click the button to get your coordinates.</p>
+        <button onclick="getLocation()">Try It</button>
+        <p id="demo"></p>
+    </div>
+
+    <script>
+        // const x = document.getElementById("demo");
+
+        // function getLocation() {
+        //   if (navigator.geolocation) {
+        //     navigator.geolocation.watchPosition(showPosition);
+        //   } else { 
+        //     x.innerHTML = "Geolocation is not supported by this browser.";
+        //   }
+        // }
+
+        // function showPosition(position) {
+        //     x.innerHTML="Latitude: " + position.coords.latitude + 
+        //     "<br>Longitude: " + position.coords.longitude;
+        // }
+
+        const x = document.getElementById("demo");
+
+        function getLocation() {
+            try {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.innerHTML = "Geolocation is not Supported by this Browser";
+                }
+            } catch (err) {
+                x.innerHTML = "Error: " + err.message;
+            }
+        }
+
+        function showPosition(position) {
+            x.innerHTML = "The Latitube of This device is: " + position.coords.latitude + "<br> The Longitude of this device is: " + position.coords.longitude + "<br>" + "The Altitube of the Device from sea is :" + position.coords.altitude + "<br>" + "The Accuracy of the Device is: " + position.coords.accuracy;
+        }
+    </script>
+
+</body>
+
+</html>
